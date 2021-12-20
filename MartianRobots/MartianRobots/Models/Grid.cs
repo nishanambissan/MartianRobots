@@ -31,9 +31,9 @@ namespace MartianRobots.Models
 
         public bool IsThisDangerous(Position currentPosition, string newInstruction)
         {
-            var key = new KeyValuePair<Position, string>(currentPosition, newInstruction);
+            var keyToFind = new KeyValuePair<Position, string>(currentPosition, newInstruction);
             
-            if (_dangerousPositions.ContainsKey(key)) //TODO make this efficient to be using override of equals
+            if (_dangerousPositions.Keys.Any(k => k.Equals(keyToFind))) 
             {
                 return true;
             }

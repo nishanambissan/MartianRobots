@@ -35,7 +35,22 @@ namespace MartianRobots.Models
 
         public CoOrdinate CoOrdinate { get; set; }
         public Orientation Orientation { get; set; }
-        
+
+        public override bool Equals(object? obj)
+        {
+            if (obj.GetType() == typeof(Position))
+            {
+                var newPos = obj as Position;
+                var existingPos = this;
+                if(newPos != null && newPos.CoOrdinate.X.Equals(existingPos.CoOrdinate.X) 
+                   && newPos.CoOrdinate.Y.Equals(existingPos.CoOrdinate.Y) 
+                   && newPos.Orientation.Equals(existingPos.Orientation))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     public class LostPosition : Position
