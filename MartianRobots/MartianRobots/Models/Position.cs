@@ -38,4 +38,14 @@ namespace MartianRobots.Models
         public Orientation Orientation { get; set; }
         
     }
+
+    public class LostPosition : Position
+    {
+        public bool IsLost = true;
+
+        public LostPosition(CoOrdinate coOrdinate, Orientation orientation) : base(coOrdinate, orientation)
+        {
+            //the co-ordinates are the last known good co-ordinates
+        }
+    }
 }

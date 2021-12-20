@@ -4,6 +4,8 @@ namespace MartianRobots.Models
 {
     public enum Orientation
     {
+        Default,
+
         [Description("East")]
         E,
 
